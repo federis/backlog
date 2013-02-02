@@ -33,10 +33,8 @@ class LogItem < ActiveRecord::Base
       end
       
       items.each do |item|
-        unless item == self
-          pos +=1
-          LogItem.update_all({position: pos}, {id: item.id}) 
-        end
+        pos +=1
+        LogItem.update_all({position: pos}, {id: item.id}) unless item == self
       end
 
     end

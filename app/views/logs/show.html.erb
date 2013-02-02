@@ -4,6 +4,7 @@
 
 <div>
   <%= link_to "Add Item", "#add_item_form", class: "btn", data: { toggle: "modal" } %>
+  <%= link_to "Add Milestone", "#add_milestone_form", class: "btn", data: { toggle: "modal" } %>
 </div>
 
 <div id="add_item_form" class="modal hide fade">
@@ -16,6 +17,18 @@
   </div>
   <div class="modal-footer"></div>
 </div>
+
+<div id="add_milestone_form" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Add Milestone</h3>
+  </div>
+  <div class="modal-body">
+    <%= render partial: 'log_items/form', locals: { log_item: LogItem.new(milestone: true) } %>
+  </div>
+  <div class="modal-footer"></div>
+</div>
+
 
 <div class="log">
   <%= render @log.log_items %>

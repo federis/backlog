@@ -2,7 +2,7 @@
   <%= f.error_messages %>
 
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :content, (log_item.milestone? ? "Name" : "Content") %><br />
     <%= f.text_field :content %>
   </div>
   <div class="field">
@@ -10,6 +10,7 @@
     <%= f.text_area :desc %>
   </div>
   <div class="actions">
+    <%= f.hidden_field :milestone %>
     <%= f.submit %>
   </div>
 <% end %>

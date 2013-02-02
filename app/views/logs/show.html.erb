@@ -12,7 +12,7 @@
     <h3>Add Item</h3>
   </div>
   <div class="modal-body">
-    <%= render partial: 'log_items/form', locals: { log_item: @log.log_items.new } %>
+    <%= render partial: 'log_items/form', locals: { log_item: LogItem.new } %>
   </div>
   <div class="modal-footer"></div>
 </div>

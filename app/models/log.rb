@@ -11,6 +11,10 @@ class Log < ActiveRecord::Base
 
   after_create :add_collaboration_for_creator
 
+  def reset_positions
+    log_items.each_with_index{|li, i| li.update_attribute :position, i }
+  end
+
 private
 
   def add_collaboration_for_creator

@@ -10,6 +10,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'dynamic_form'
 gem 'twitter-bootstrap-rails'
+gem 'thin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -33,9 +34,4 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'debugger'
-
-end
-
-group :development do
-  gem 'thin'
 end

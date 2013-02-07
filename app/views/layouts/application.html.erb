@@ -7,13 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= params[:controller].parameterize %>_controller <%=params[:action]%>_action" data-controller="<%=params[:controller].camelize%>" data-action="<%=params[:action].camelize%>">
-  <div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <p class="error"><%= flash[:error] %></p>
-  </div>
+	<div>
+		<%= alert %>
+	</div>
+	<div>
+		<%= flash[:error] %>
+	</div>
+	<div>
+		<%= notice %>
+	</div>
 
-<%= yield %>
+	<div class="navbar">
+	  <div class="navbar-inner">
+	    <%= link_to "Backlogs.io", root_url, :class => "brand" %>
+	    <ul class="nav">
+	      <li class="active"><%= link_to "Home", root_url %></li>
+	    </ul>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="row-fluid">
+	    <div class="leftnav span2">
+	      	<h3>Your Backlogs</h3>
+	    </div>
+	    <div class="span10">
+	    	<%= yield %>
+	    </div>
+	  </div>
+	</div>
 
 </body>
 </html>

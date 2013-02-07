@@ -14,6 +14,12 @@ class LogItemsController < ApplicationController
     redirect_to @log_item.log
   end
 
+  def destroy
+    @log_item = current_log.log_items.find(params[:id])
+    @log_item.destroy
+    respond_with @log_item
+  end
+
   def position
     @log_item = current_log.log_items.find(params[:id])
     @log_item.update_position(params[:position])

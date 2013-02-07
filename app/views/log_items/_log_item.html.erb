@@ -1,3 +1,9 @@
-<div id="log_item_<%= log_item.id %>" class="log-item <%= milestone_class(log_item) %>" data-id="<%= log_item.id %>" data-update-url="<%= log_log_item_url(log_item.log, log_item) %>">
-  <%= log_item.content %>
+<div id="log_item_<%= log_item.id %>" class="log-item <%= milestone_class(log_item) %>" data-id="<%= log_item.id %>" data-update-url="<%= log_log_item_url(log_item.log, log_item) %>" data-desc="<%= log_item.desc %>" data-content="<%= log_item.content %>">
+  <div>
+    <a href="#" class="edit-log-item">Edit</a> | 
+    <a href="#" class="delete-log-item">Delete</a> | 
+    <span class="log-item-content">
+      <%= log_item.content %>
+    </span>
+  </div>
 </div>

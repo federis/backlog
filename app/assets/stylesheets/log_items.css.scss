@@ -3,7 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
  .log-item {
- 	background: #F7F1D7;
+ 	background: #00A0B0;
  	padding: 5px;
- 	margin: 5px 0;
+ 	margin: 5px 15px;
+ 	border: 1px solid #006d78;
+ 	color: #fff
+ }
+
+ .milestone {
+ background: none;
+ border-bottom: 3px solid #000;
+ margin: 10px 0 15px 0;
+ font-weight: 700;
+ border-top: none;
+ border-left: none;
+ border-right: none
  }

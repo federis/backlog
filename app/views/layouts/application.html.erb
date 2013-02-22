@@ -5,38 +5,62 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+	<script>
+		$(function() {
+	   		$('#flash').slideDown('slow', function() {
+	      	$(this).delay(4000).slideUp();
+	   });
+	});
+	</script>
 </head>
 <body class="<%= params[:controller].parameterize %>_controller <%=params[:action]%>_action" data-controller="<%=params[:controller].camelize%>" data-action="<%=params[:action].camelize%>">
-	<div>
-		<%= alert %>
-	</div>
-	<div>
-		<%= flash[:error] %>
-	</div>
-	<div>
-		<%= notice %>
-	</div>
+
+	<%= render partial: "/layouts/flash_messages" %>
+
 
 	<div class="navbar">
-	  <div class="navbar-inner">
-	    <%= link_to "Backlogs.io", root_url, :class => "brand" %>
-	    <ul class="nav">
-	      <li class="active"><%= link_to "Home", root_url %></li>
-	    </ul>
-	  </div>
+	  	<div class="navbar-inner">
+	  		<div class = "row-fluid">
+		  		<div class = "span4">
+		  			<ul class = "nav">
+			  			<% if user_signed_in? %>
+					    	<li><%= current_user.email %></li>
+					    	<li><%= link_to('Edit profile', edit_user_registration_path) %></li>
+					    	<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+						<% else %>
+							<li><%= link_to "Sign up", new_user_registration_path %></li>
+						    <li><%= link_to "Sign in", new_user_session_path %></li>
+						<% end %>
+					</ul>
+				</div>
+				<div class = "span2 pull-right">
+		 			<%= link_to "backlogs", root_url, :class => "brand" %>
+		 		</div>
+			</div>
+		</div>
 	</div>
 
-	<div class="container-fluid">
-	  <div class="row-fluid">
-	    <div class="leftnav span2">
-	      	<h3>Your Backlogs</h3>
-	      	<%= render 'logs/list' %>
- 	    </div>
-	    <div class="span10">
-	    	<%= yield %>
-	    </div>
-	  </div>
+	<div id="layout">
+		<div class="container-fluid" style = "padding: 0">
+			<div class = "row-fluid">
+			    <div class="span2 side">
+			    	<% if user_signed_in? %>
+					  	<h3>Backlogs</h3>
+				      	<%= render 'logs/list' %>
+   					<% end %>
+			    </div>
+			    <div class = "span10" id="content">
+			        <%= yield %>
+			    </div>
+			</div>
+		</div>       
+		<div id="fix"></div>
 	</div>
+
+
+
 
 </body>
 </html>

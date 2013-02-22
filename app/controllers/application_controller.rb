@@ -1,13 +1,16 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-  before_filter :authenticate_user!
+	protect_from_forgery
+	before_filter :authenticate_user!
 
-  before_filter :set_logs
+	private
 
-private
+		def set_logs
+			@logs ||= current_user.logs
+		end
 
-  def set_logs
-    @logs ||= current_user.logs
-  end
-  
+
 end
+
+
+
+

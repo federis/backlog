@@ -1,3 +1,6 @@
-<%= render @logs %>
+<%= link_to "New backlog", new_log_url, :class => "btn" %>
 
-<%= link_to "Create a backlog", new_log_url, :class => "btn" %>
+<ul>
+	<%= render @logs %>
+</ul>
+

@@ -1,6 +1,81 @@
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
 
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html, body{
+    height: 100%;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+	margin: 0;
+}
+
+.navbar .brand {
+	float: none;
+	text-align: right;
+	color: #d2522c;
+	text-shadow: none;
+	font-size: 18px;
+	text-transform: lowercase;
+	padding: 5px 0 7px 0;
+	line-height: 1em
+}
+
+.navbar-inner {
+	background: #EB6841;
+	margin: 0;
+	border-radius: 0;
+	webkit-border-radius: 0;
+	moz-border-radius: 0;
+	border: 0;
+	min-height: 0;
+	color: #f4ccc0;
+	font-size: 12px
+}
+
+.navbar .nav > li {
+	line-height: 1em;
+	padding: 7px 0 7px 0;
+}
+
+.navbar .nav > li > a {
+	padding: 0 0 0 20px;
+	text-shadow: none;
+	color: #fff
+}
+
+.navbar .nav > li > a:hover {
+	color: #f4ccc0
+}
+
+.navbar-inner a, .navbar-inner a:visited {
+	color: #fff
+}
+
+div#flash {
+	display: none;
+	margin: 0;
+	padding: 0
+}
+
+div#flash p {
+	padding: 10px 20px;
+	text-align: left;
+	color: #333;
+	font-size: 16px;
+}
+
+
+
+
 // Set the correct sprite paths
 @iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");
 @iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white");

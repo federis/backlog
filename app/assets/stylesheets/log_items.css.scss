@@ -3,19 +3,53 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
  .log-item {
- 	background: #00A0B0;
- 	padding: 5px;
- 	margin: 5px 15px;
- 	border: 1px solid #006d78;
- 	color: #fff
+ 	background: #e8f6fb;
+ 	padding: 5px 10px 5px 5px;
+ 	margin: 5px 15px 5px 5px;
+ 	border: 1px solid #c3e4f0;
+ 	color: #092934;
+ 	border-radius: 5px;
+ 	moz-border-radius: 5px;
+ 	webkit-border-radius: 5px
+ }
+
+.row-fluid [class*="span"] {
+	min-height: 5px
+}
+
+ div.log-item:hover {
+ 	cursor: -webkit-grab;
+ 	cursor: -moz-grab;
+ 	cursor: url(https://mail.google.com/mail/images/2/openhand.cur) 8 8, move;
+ 	cursor: url(https://mail.google.com/mail/images/2/openhand.cur), move;
+ }
+
+ div.log-item:active {
+ 	cursor: -webkit-grabbing;
+ 	cursor: -moz-grabbing;
+ 	cursor: url(https://mail.google.com/mail/images/2/closedhand.cur) 8 8, move;
+ 	cursor: url(https://mail.google.com/mail/images/2/closedhand.cur), move;
  }
 
  .milestone {
- background: none;
- border-bottom: 3px solid #000;
- margin: 10px 0 15px 0;
- font-weight: 700;
- border-top: none;
- border-left: none;
- border-right: none
+ 	background: none;
+	border-bottom: 3px solid #CC333F;
+	margin: 10px 15px 15px 0;
+	font-weight: 700;
+	font-size: 14px;
+	padding: 0 0 0px 0;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+  	border-radius: 0px;
+ 	moz-border-radius: 0px;
+ 	webkit-border-radius: 0px;
+ 	color: #CC333F;
+ 	text-transform: uppercase
+ }
+
+.log-item-options {
+ 	font-weight: normal;
+ 	font-size: 10px;
+ 	text-transform: none
  }

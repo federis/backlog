@@ -1,5 +1,7 @@
 class LogsController < ApplicationController
-  
+  before_filter :authenticate_user!  
+  before_filter :set_logs, :only => [:show, :new]
+
   def index
     @logs = current_user.logs
   end

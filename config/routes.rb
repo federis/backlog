@@ -5,7 +5,10 @@ Backlog::Application.routes.draw do
     end
   end
 
-  devise_for :users
+	 devise_for :users do
+	    get "/users/sign_in" => "devise/sessions#new"
+	    get "/users/sign_out" => "devise/sessions#destroy"
+	 end
 
   root to: "logs#index"
 end

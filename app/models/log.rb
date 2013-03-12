@@ -15,6 +15,10 @@ class Log < ActiveRecord::Base
     log_items.each_with_index{|li, i| li.update_attribute :position, i }
   end
 
+  def item_positions
+    log_items.map{|li| li.position }
+  end
+
 private
 
   def add_collaboration_for_creator

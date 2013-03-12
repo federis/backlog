@@ -12,31 +12,23 @@ class LogItem < ActiveRecord::Base
 
   before_validation :assign_position, on: :create, if: Proc.new{|li| li.position.blank? }
 
-  scope :at_or_after_position, ->(pos){ where(["log_items.position >= ?", pos]) }
-  scope :at_or_before_position, ->(pos){ where(["log_items.position <= ?", pos]) }
+  scope :between, ->(start_pos, end_pos){ where(["log_items.position >= ? AND log_items.position <= ?", start_pos, end_pos])}
 
   def update_position(new_pos)
     new_pos = new_pos.to_i
     if self[:position] != new_pos
-      LogItem.update_all({position: new_pos}, {id: id})
-      
       old_pos = self.position
-      
-      items = nil
-      pos = nil
-      items = if new_pos > old_pos
-        pos = old_pos - 1
-        log.log_items.at_or_after_position(old_pos)
-      else
-        pos = new_pos
-        log.log_items.at_or_before_position(old_pos)
-      end
-      
-      items.each do |item|
-        pos +=1
-        LogItem.update_all({position: pos}, {id: item.id}) unless item == self
+
+      pos = new_pos > old_pos ? old_pos : new_pos+1
+      bounds = [old_pos, new_pos]
+      log.log_items.between(bounds.min, bounds.max).each do |item|
+        unless item == self
+          LogItem.update_all({position: pos}, {id: item.id}) 
+          pos+=1
+        end
       end
 
+      LogItem.update_all({position: new_pos}, {id: id})
     end
   end
 

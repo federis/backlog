@@ -4,7 +4,7 @@
   <div>
     <%= link_to "Add Item", "#add_item_form", class: "btn", data: { toggle: "modal" } %>
     <%= link_to "Add Milestone", "#add_milestone_form", class: "btn", data: { toggle: "modal" } %>
-    <%= link_to "Add Collaborator", "#add_collaborator_form", class: "btn", data: { toggle: "modal" } %>
+    <%= link_to "Manage Collaborators", log_collaborations_url(@log), class: "btn" %>
   </div>
 
   <div id="add_item_form" class="modal hide fade" style = "padding: 30px">
@@ -24,16 +24,6 @@
     </div>
     <div class="modal-body">
       <%= render partial: 'log_items/form', locals: { log_item: LogItem.new(milestone: true) } %>
-    </div>
-  </div>
-
-  <div id="add_collaborator_form" class="modal hide fade" style = "padding: 30px">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3>Add User</h3>
-    </div>
-    <div class="modal-body">
-      <%= render partial: 'collaborations/form' %>
     </div>
   </div>
 

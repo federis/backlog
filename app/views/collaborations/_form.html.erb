@@ -1,11 +1,13 @@
+<%= link_to "&larr; Back to Backlog".html_safe, @log %>
+
 <%= form_for([@log, Collaboration.new]) do |f| %>
   <%= f.error_messages %>
 
   <div class="field">
-    <%= f.label :email, "User's Email Address" %>
-    <%= f.text_field :email, :class => "input-xxlarge" %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Add Item', :class => 'btn' %>
+    Add User: 
+    <%= f.text_field :email, :class => "input-xxlarge", :placeholder => "User's email address" %>
+    <%= f.submit 'Add User', :class => 'btn' %>
   </div>
 <% end %>
+
+<%= render @collaborations %>

@@ -1,0 +1,11 @@
+<%= form_for([@log, Collaboration.new]) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :email, "User's Email Address" %>
+    <%= f.text_field :email, :class => "input-xxlarge" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Add Item', :class => 'btn' %>
+  </div>
+<% end %>

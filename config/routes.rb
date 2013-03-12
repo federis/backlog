@@ -3,6 +3,8 @@ Backlog::Application.routes.draw do
     resources :log_items do
       put 'position', on: :member
     end
+
+    resources :collaborations
   end
 
 	 devise_for :users do

@@ -26,10 +26,4 @@ class LogItemsController < ApplicationController
     head :ok
   end
 
-private
-  
-  def current_log
-    @current_log ||= current_user.logs.find(params[:log_id])
-  end
-
 end

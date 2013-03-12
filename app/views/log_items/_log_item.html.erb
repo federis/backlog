@@ -3,7 +3,7 @@
 	<div class = "row-fluid" style = "padding: 0; margin: 0">
 		<div class = "span10">
 		    <span class="log-item-content">
-          <%= log_item.position %>. 
+          <% if Rails.env.development? %><%= log_item.position %>. <%end%>
 		    	<%= log_item.content %>
 		    </span>
 		</div>

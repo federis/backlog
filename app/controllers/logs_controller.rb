@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
   before_filter :authenticate_user!  
-  before_filter :set_logs, :only => [:show, :new]
+  before_filter :set_logs, :only => [:show, :show_all, :new]
 
   def index
     @logs = current_user.logs
@@ -8,6 +8,13 @@ class LogsController < ApplicationController
 
   def show
     @log = current_user.logs.find(params[:id])
+    @log_items = @log.log_items.incomplete
+  end
+
+  def show_all
+    @log = current_user.logs.find(params[:id])
+    @log_items = @log.log_items
+    render :show
   end
 
   def new

@@ -1,4 +1,7 @@
 class Backlog.Logs
+  initShowAll: ()->
+    @initShow()
+
   initShow: ()->
     $(".log").sortable(
         axis: "y"

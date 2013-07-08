@@ -4,6 +4,8 @@ Backlog::Application.routes.draw do
       put 'position', on: :member
     end
 
+    get 'all' => "logs#show_all", on: :member
+
     resources :collaborations
   end
 

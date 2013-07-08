@@ -10,7 +10,11 @@
  	color: #092934;
  	border-radius: 5px;
  	moz-border-radius: 5px;
- 	webkit-border-radius: 5px
+ 	webkit-border-radius: 5px;
+
+ 	.complete{
+ 		text-decoration: line-through;
+ 	}
  }
 
 .row-fluid [class*="span"] {
@@ -52,4 +56,13 @@
  	font-weight: normal;
  	font-size: 10px;
  	text-transform: none
+ }
+
+ .item-complete-form{
+ 	display: inline;
+
+ 	input[type='submit']{ 
+ 		font-size:10px; 
+ 		vertical-align: baseline;
+ 	}
  }

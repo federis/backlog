@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130201193017) do
+ActiveRecord::Schema.define(:version => 20130312205657) do
 
   create_table "collaborations", :force => true do |t|
     t.integer  "user_id"
@@ -29,12 +29,13 @@ ActiveRecord::Schema.define(:version => 20130201193017) do
     t.integer  "position"
     t.string   "content"
     t.boolean  "milestone"
-    t.boolean  "complete"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.text     "desc"
+    t.datetime "completed_at"
   end
 
+  add_index "log_items", ["completed_at"], :name => "index_log_items_on_completed_at"
   add_index "log_items", ["log_id", "position"], :name => "index_log_items_on_log_id_and_position"
   add_index "log_items", ["log_id"], :name => "index_log_items_on_log_id"
   add_index "log_items", ["user_id"], :name => "index_log_items_on_user_id"

@@ -1,16 +1,17 @@
 <div id="log_item_<%= log_item.id %>" class="log-item <%= milestone_class(log_item) %>" data-id="<%= log_item.id %>" data-update-url="<%= log_log_item_url(log_item.log, log_item) %>" data-desc="<%= log_item.desc %>" data-content="<%= log_item.content %>">
 
 	<div class = "row-fluid" style = "padding: 0; margin: 0">
-		<div class = "span10">
-		    <span class="log-item-content">
+		<div class = "span9">
+		    <span class="log-item-content <%= 'complete' if log_item.complete? %>">
           <% if Rails.env.development? %><%= log_item.position %>. <%end%>
 		    	<%= log_item.content %>
 		    </span>
 		</div>
-		<div class = "span2 log-item-options" style = "text-align: right">
+		<div class = "span3 log-item-options" style = "text-align: right">
+      <%= log_item_complete_button(log_item, class: "btn-link") %> &#183; 
 			<a href="#" class="edit-log-item">Change</a> &#183; 
-    		<a href="#" class="delete-log-item">Remove</a>
-    	</div>
+    	<a href="#" class="delete-log-item">Remove</a>
     </div>
+  </div>
 
 </div>

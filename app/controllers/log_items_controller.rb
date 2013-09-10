@@ -11,7 +11,7 @@ class LogItemsController < ApplicationController
   def update
     @log_item = current_log.log_items.find(params[:id])
     @log_item.update_attributes(params[:log_item])
-    redirect_to @log_item.log
+    redirect_to :back #@log_item.log
   end
 
   def destroy

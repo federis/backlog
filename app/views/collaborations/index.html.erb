@@ -1,5 +1,5 @@
-<%= link_to "&larr; Back to Backlog".html_safe, @log %>
+<div class="back-link"><%= link_to "&larr; Back to Backlog".html_safe, @log %></div>
 
-<%= render partial: 'collaborations/form' %>
+<div><%= render partial: 'collaborations/form' %></div>
 
-<%= render @collaborations %>
+<table><%= render @collaborations %></table>

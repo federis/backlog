@@ -18,8 +18,10 @@ class LogItem < ActiveRecord::Base
   scope :complete, ->{ where("log_items.complete_at is not NULL")}
 
   def complete=(val)
-    if val == "true" || val == true
-      self.completed_at = Time.now
+    self.completed_at = if val == "true" || val == true
+      Time.now
+    else
+      nil
     end
   end
 
